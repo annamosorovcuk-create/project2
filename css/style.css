@@ -19,24 +19,27 @@
  .block_1a {
     background-color: #FA51A2;
     height: 400px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
  }
  .block_1b {
     background-color: #BDF522;
     height: 400px;
+    position: relative;
     z-index: 4;
  }
   .photo-1{
    position: absolute;
    top: 80px;
-   right: 1112px;
-   left: 100px;
+   right: -40px;
    width: 581px;
    height: 429px;
    z-index: 2;
  }
  .text_1{
-   position: absolute;
    padding: 50px 15px;
    font-family: 'Inter';
    font-size: 250px;
@@ -47,7 +50,8 @@
 
 .text_2{
    position: absolute;
-   padding: 180px 90px;
+   bottom: 20px;
+   left: 40px;
    font-family: 'Inter';
    font-size: 200px;
    color: #FE8616;
@@ -60,6 +64,7 @@
     grid-row: 2;
     background-color: #7B46F9;
     height: 200px;
+    position: relative;
     z-index: 4;
  }
 
@@ -75,7 +80,7 @@
   .photo-2{
    position: absolute;
    padding: 25px 15px;
-   left: 1230px;
+   right: 10px;
    width: 167px;
    height: 155px;
    z-index: 5;
