@@ -16,6 +16,39 @@
     display: grid;
     grid-template-columns: 1fr 2fr;
  }
+ .global-lag_str1 {
+  position: fixed;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 10;
+ }
+
+.laglag-square-global {
+  position: absolute;
+  width: 31px;
+  height: 31px;
+  background-color: #000;
+  animation: lagGlobal1Blink 0.6s ease-in-out infinite;
+  left: var(--left, 50%);
+  top: var(--top, 50%);
+  animation-delay: var(--delay, 0s);
+
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+@keyframes lagGlobal1Blink {
+    0%, 100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.5);
+    }
+    50% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+
  .block_1a {
     background-color: #FA51A2;
     height: 400px;
@@ -31,6 +64,35 @@
     position: relative;
     z-index: 4;
  }
+
+ .squares-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  gap: 30px;
+ }
+ .square {
+  display: inline-block;
+  width: 120px;
+  height: 120px;
+  background-color: #7B46F9;
+  animation: squareMove 4s ease-in-out infinite;
+ }
+ .square:nth-child(1) { animation-delay: 0s; }
+ .square:nth-child(2) { animation-delay: 0.2s; }
+ .square:nth-child(3) { animation-delay: 0.4s; }
+ .square:nth-child(4) { animation-delay: 0.6s; }
+
+ @keyframes squareMove {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(calc(var(--offset) * -1));
+  }
+}
+
   .photo-1{
    position: absolute;
    top: 80px;
@@ -68,7 +130,7 @@
    font-size: 200px;
    color: #FE8616;
    font-weight: normal;
-   z-index: 5;
+   z-index: 6;
    animation: weightBreath 1.2s ease-in-out infinite alternate;
 }
 @keyframes weightBreath {
@@ -79,6 +141,45 @@
       font-weight: 900;
    }
 }
+
+.lag-squares {
+  position: absolute;
+  bottom: 40px;
+  left: 35px;
+  display: flex;
+  z-index: 5;
+  width: auto;
+}
+
+.lag-square {
+  width: 170px;
+  height: 160px;
+  background-color: #A609F0;
+  animation: lagDisappear 2.5s ease-in-out infinite;
+}
+
+.lag-square:nth-child(1) { animation-delay: 0s; }
+.lag-square:nth-child(2) { animation-delay: 1s; }
+.lag-square:nth-child(3) { animation-delay: 0.5s; }
+.lag-square:nth-child(4) { animation-delay: 1.5s; }
+.lag-square:nth-child(5) { animation-delay: 2s; }
+.lag-square:nth-child(6) { animation-delay: 1s; }
+
+@keyframes lagDisappear {
+    0%, 40% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50%, 90% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
  .block_2 {
     grid-column: 1 / 3;
     grid-row: 2;
@@ -94,7 +195,7 @@
    font-size: 180px;
    color: #BDF522;
    font-weight: 900;
-   z-index: 5;
+   z-index: 6;
    top: 50%;
    left: 42%;
    animation: pulseScale 2s ease-in-out infinite;
@@ -109,6 +210,46 @@
   50% {
     transform: translate(-50%, -50%) scale(0.85);
   }
+}
+
+.lag-squares_2 {
+  position: absolute;
+  bottom: 50px;
+  left: 30px;
+  display: flex;
+  z-index: 5;
+  width: auto;
+}
+
+.lag-square_2 {
+  width: 170px;
+  height: 140px;
+  background-color: #FA51A2;
+  animation: lagDisappear 2.5s ease-in-out infinite;
+}
+
+.lag-square_2:nth-child(1) { animation-delay: 1s; }
+.lag-square_2:nth-child(2) { animation-delay: 0s; }
+.lag-square_2:nth-child(3) { animation-delay: 0.5s; }
+.lag-square_2:nth-child(4) { animation-delay: 1.5s; }
+.lag-square_2:nth-child(5) { animation-delay: 2s; }
+.lag-square_2:nth-child(6) { animation-delay: 1s; }
+.lag-square_2:nth-child(7) { animation-delay: 0.5s; }
+
+
+@keyframes lagDisappear {
+    0%, 40% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50%, 90% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
   .photo-2{
@@ -145,7 +286,7 @@
    color: #FE8616;
    font-weight: bold;
    writing-mode: vertical-rl;
-   z-index: 2;
+   z-index: 3;
    animation: stretchBoth 2s ease-in-out infinite;
    transform-origin: center center;
   }
@@ -159,6 +300,35 @@
   }
 }
 
+.lag-squares_3 {
+  position: absolute;
+  display: flex;
+  z-index: 2;
+  width: auto;
+  writing-mode: vertical-rl;
+}
+
+.lag-square_3 {
+  width: 140px;
+  height: 160px;
+  background-color: #BDF522;
+  animation: lagstretchBoth 2s ease-in-out infinite;
+  transform-origin: center center;
+}
+  @keyframes lagstretchBoth {
+  0%, 100% {
+    transform: scaleX(1); 
+  }
+  50% {
+    transform: scaleX(1.8); 
+  }
+}
+.lag-square_3:nth-child(1) { animation-delay: 0s; }
+.lag-square_3:nth-child(2) { animation-delay: 0s; }
+.lag-square_3:nth-child(3) { animation-delay: 0s; }
+.lag-square_3:nth-child(4) { animation-delay: 0s; }
+
+
  .block_3 {
     grid-column: 1 / 3;
     grid-row: 3;
@@ -168,8 +338,6 @@
     display: flex;
     align-items: center;
     overflow: hidden;
-
-    
  }
 
 .photo-3{
@@ -178,7 +346,7 @@
    height: 100%;
    object-fit: contain;
    object-position: left center;
-   z-index: 2;
+   z-index: 1;
    display: block;
    margin-left: -20px;
    margin-top: -30px;
@@ -205,6 +373,31 @@
   }
 }
 
+.laglag-square {
+  position: absolute;
+  width: 31px;
+  height: 31px;
+  background-color: #BDF522;
+  animation: lagBlink 0.6s ease-in-out infinite;
+  left: var(--left, 50%);
+  top: var(--top, 50%);
+  animation-delay: var(--delay, 0s);
+
+  transform: translate(-50%, -50%);
+  z-index: 3;
+}
+
+@keyframes lagBlink {
+    0%, 100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.5);
+    }
+    50% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
  .level-container-bottom {
     display: grid;
     grid-column: 1 / -1;
@@ -220,26 +413,36 @@
     padding-right: 30px;
  }
  .text_6{
+   display: flex;
+ }
+
+.letter-with-square {
+  animation: moveLetter 3s ease-in-out infinite;
+}
+.lag-square_4 {
+    width: 140px; 
+    height: 140px;
+    background-color: #FA51A2;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    position: relative;
+}
+.lag-square_4 .letter {
    font-family: 'Inter';
    font-size: 130px;
    color: #A609F0;
    font-weight: normal;
-   z-index: 2;
-   display: flex;
- }
-
-.text_6 span {
-  display: inline-block;
-  animation: moveLetter 3s ease-in-out infinite;
+   line-height: 1;
 }
 
 @keyframes moveLetter {
-  0%, 100% {
-    transform: translateX(0);
-  }
-  50% {
-    transform: translateX(calc(var(--offset) * -1));
-  }
+    0%, 100% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(calc(var(--offset) * -1));
+    }
 }
 
  .block_4b {
