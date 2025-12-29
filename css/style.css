@@ -1672,8 +1672,8 @@ animation: shake 0.5s ease-in-out infinite;
     position: relative;
     width: 90%;
     height: auto;
-    right: auto;
-    top: auto;
+    right: 10px;
+    top: 80px;
     margin: 0 auto;
   }
 
